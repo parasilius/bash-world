@@ -24,9 +24,7 @@ protonConnect() {
 # function to sync subtitles with video titles
 subtitleSync() {
     directory=$(echo */)
-    echo $directory
     subtitle=$(ls $directory | grep -e "s0*"$1".*e0*"$2"" -e "S0*"$1".*E0*"$2"")
-    echo $subtitle
     mv "$directory$subtitle" .
     mv $(ls | grep -e "s0*"$1".*e0*"$2".*\.srt$" -e "S0*"$1".*E0*"$2".*\.srt$") ${$(ls | grep -e "s0*"$1".*e0*"$2".*\.mkv$" -e "S0*"$1".*E0*"$2".*\.mkv$")%.mkv}.srt
 }
