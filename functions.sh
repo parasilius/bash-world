@@ -26,7 +26,7 @@ subtitleSync() {
     1=`printf %02d $1`
     2=`printf %02d $2`
     directory=$(echo */)
-    subtitle=$(ls $directory | grep -e "s"$1".*e"$2"" -e "S"$1".*E"$2"")
+    subtitle=$(ls $directory | grep -e ""$1".*"$2"")
     mv "$directory$subtitle" .
-    mv "$(ls | grep -e "s"$1".*e"$2".*\.srt$" -e "S"$1".*E"$2".*\.srt$")" ${$(ls | grep -e "s"$1".*e"$2".*\.mkv$" -e "S"$1".*E"$2".*\.mkv$")%.mkv}.srt
+    mv "$subtitle" ${$(ls | grep -e "s"$1".*e"$2".*\.mkv$" -e "S"$1".*E"$2".*\.mkv$")%.mkv}.srt
 }
